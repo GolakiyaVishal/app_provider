@@ -1,7 +1,11 @@
 import 'package:app_provider/common/common.dart';
+import 'package:app_provider/common/lang/lang.dart';
 import 'package:app_provider/presentation/screen_providers/home_provider.dart';
+import 'package:app_provider/presentation/themes/app_theme.dart';
+import 'package:app_provider/presentation/themes/theme_provider.dart';
 import 'package:app_provider/presentation/themes/theme_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/home_page.dart';
@@ -16,12 +20,23 @@ class ProviderApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Provider App',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          textTheme: ThemeText.getTextTheme()
-        ),
-        home: HomePage(title: 'Home Page'),
+
+        //> multiple theme
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        themeMode: context.read<ThemeProvider>().themeMode,
+
+        //> localization
+        supportedLocales:
+            Languages.languages.map((e) => Locale(e.code)).toList(),
+        locale: context.watch<LanguageProvider>().local,
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate
+        ],
+
+        home: HomePage(),
       ),
     );
   }

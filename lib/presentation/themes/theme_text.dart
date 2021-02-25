@@ -8,9 +8,9 @@ class ThemeText {
   const ThemeText._();
 
   static TextTheme get _poppinsTextTheme => GoogleFonts.poppinsTextTheme();
-  static TextStyle get _whiteHeadline6 => _poppinsTextTheme.headline6.copyWith(
+  static TextStyle get _blackHeadline6 => _poppinsTextTheme.headline6.copyWith(
         fontSize: Sizes.dimen_20.sp,
-        color: Colors.white,
+        color: Colors.black,
       );
 
   static TextStyle get _whiteHeadline5 => _poppinsTextTheme.headline5.copyWith(
@@ -38,7 +38,7 @@ class ThemeText {
 
   static getTextTheme() => TextTheme(
       headline5: _whiteHeadline5,
-      headline6: _whiteHeadline6,
+      headline6: _blackHeadline6,
       subtitle1: whiteSubtitle1,
       bodyText2: whiteBodyText2,
       button: _whiteButton);
