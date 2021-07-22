@@ -18,11 +18,17 @@ dependencies:
   google_fonts: ^1.1.0    # font face
   provider: ^4.3.3        # state management
   equatable: ^1.2.0       # to compare object and value
-  http: ^0.12.1           # network call
+
+  shared_preferences: ^0.5.12+4   # for local data
+  dio: ^3.0.10                    # network call
+  retrofit: ^1.3.4+1              # dio client generator
+  pretty_dio_logger: ^1.1.1       # dio logger
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  retrofit_generator: ^1.4.1+2
+  build_runner: ^1.11.1
 
 flutter:
   uses-material-design: true
